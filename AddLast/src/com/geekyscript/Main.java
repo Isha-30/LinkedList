@@ -17,5 +17,6 @@ public class Main {
 
         ll.display();
         System.out.println("Size after removing nodes: "+ll.size);
+        System.out.println(ll.getElement(0));
     }
 }

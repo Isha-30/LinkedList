@@ -41,4 +41,22 @@ public class LinkedList {
             size--;
         }
     }
+
+    int getElement(int index){
+        Node temp = head;
+        if(size==0){
+            System.out.println("Empty list");
+            return -1;
+        }
+        else if(index<0 || index>=size){
+            System.out.println("Invalid");
+            return -1;
+        }
+        else{
+            for(int i = 0; i<index; i++){
+                temp = temp.next;
+            }
+            return temp.data;
+        }
+    }
 }
