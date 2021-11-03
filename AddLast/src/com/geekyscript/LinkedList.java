@@ -59,4 +59,22 @@ public class LinkedList {
             return temp.data;
         }
     }
+
+    void removeAtIndex(int idx){
+        Node temp = head;
+        if(idx<0 || idx>=size){
+            System.out.println("Invalid index");
+            return;
+        }
+        else if(idx == 0){
+            remove();
+        }
+        else{
+            for(int i = 0; i<idx-1; i++){
+                temp = temp.next;
+            }
+            temp.next = temp.next.next;
+            size--;
+        }
+    }
 }
