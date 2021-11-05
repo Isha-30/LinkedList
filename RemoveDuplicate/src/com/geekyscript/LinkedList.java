@@ -53,22 +53,23 @@ public class LinkedList {
 
     public void removeDuplicate(){
         LinkedList result = new LinkedList();
-
+        int flag = 0;
         while(this.size>0){
             int val = this.getFirst();
             this.removeFirst();
 
-            Node temp = result.head;
-            int flag = 0;
-            if(result.size== 0) result.addLast(val);
-            while(temp!=null){
-                if(temp.data==val){
-                    flag=1;//flag = 1 means element is not in result
-                    break;
+            if(result.size==0) result.addLast(val);
+            else{
+                Node temp = result.head;
+                for(int i = 0; i<result.size; i++){
+                    if(temp.data == val){
+                        flag=1;
+                        break;
+                    }
+                    temp = temp.next;
                 }
-                temp = temp.next;
+                if(flag==0) result.addLast(val);
             }
-            if(flag==1) result.addLast(val);
         }
         this.head = result.head;
         this.tail = result.tail;

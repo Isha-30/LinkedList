@@ -13,6 +13,6 @@ public class Main {
         l1.addLast(1);
 
         l1.removeDuplicate();
-        System.out.println(l1.size);
+        l1.display();
     }
 }
