@@ -1,0 +1,22 @@
+class Solution {
+    
+    public List<String> AllParenthesis(int n) 
+    {
+        List<String> list = new ArrayList<>();
+        helper(list, n, "", 0,0);
+       
+       return list;
+    }
+    
+    public void helper(List<String> list, int max, String st, int open, int close ){
+       if(st.length() == max*2){
+           list.add(st);
+       }
+       
+       if(max> open)
+           helper(list, max, st+"(", open+1, close);
+       
+       if(close<open)
+           helper(list,max, st+")", open, close+1);
+   }
+}
