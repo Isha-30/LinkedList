@@ -1,0 +1,35 @@
+class BrowserHistory {
+     Stack<String> pre;
+     Stack<String> next;
+     String current;
+     public BrowserHistory(String homepage) {
+        pre = new Stack();
+        next = new Stack();
+        current=homepage;
+        
+     }
+    
+    public void visit(String url) {
+        next=new Stack();
+        pre.push(current);
+        current=url;
+    }
+    
+    public String back(int steps) {
+       while(pre.size()>0 && steps>0){
+            next.push(current);
+            current = pre.pop();
+            steps--;
+       }
+        return current;
+    }
+    
+    public String forward(int steps) {
+       while(next.size()>0 && steps>0){
+          pre.push(current); 
+          current = next.pop();
+          steps--;
+       }
+        return current; 
+    }
+}
